@@ -17,6 +17,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var tfDetails: UITextField!
     
     var stores = [Store]()
+    var itemToEdit: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,10 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         storePicker.delegate = self
         
         getStores()
+        
+        if itemToEdit != nil {
+            loadItemData()
+        }
         
 //        let store1 = Store(context: context)
 //        store1.name = "Kearny Shoprite"
@@ -82,7 +87,12 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     
     @IBAction func savePressed(_ sender: UIButton) {
-        let item = Item(context: context)
+        var item: Item!
+        if itemToEdit == nil {
+            item = Item(context: context)
+        } else {
+            item = itemToEdit
+        }
         
         if let title = tfTitle.text, let price = Double(tfPrice.text!), let detail = tfDetails.text {
             item.title = title
@@ -100,5 +110,24 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
     }
     
+    
+    func loadItemData() {
+        if let item = itemToEdit {
+            tfTitle.text = item.title
+            tfPrice.text = String(item.price)
+            tfDetails.text = item.details
+            
+            if let store = item.toStore {
+                for i in 0 ..< stores.count {
+                    if stores[i].name == store.name {
+                        storePicker.selectRow(i, inComponent: 0, animated: true)
+                        break
+                    }
+                }
+                
+            }
+        }
+        
+    }
 
 }
