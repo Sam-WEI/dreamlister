@@ -23,6 +23,7 @@
 		CB0E133D1DC6D12A006B8DF1 /* ItemType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E13351DC6D12A006B8DF1 /* ItemType+CoreDataProperties.swift */; };
 		CB0E13431DC6DB3F006B8DF1 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E13421DC6DB3F006B8DF1 /* MaterialView.swift */; };
 		CB0E13451DC6DD3C006B8DF1 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E13441DC6DD3C006B8DF1 /* ItemCell.swift */; };
+		CB6A714C1DC7B30C00A2C49B /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A714B1DC7B30C00A2C49B /* ItemDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		CB0E13351DC6D12A006B8DF1 /* ItemType+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemType+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CB0E13421DC6DB3F006B8DF1 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		CB0E13441DC6DD3C006B8DF1 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		CB6A714B1DC7B30C00A2C49B /* ItemDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,6 @@
 				CB0E13401DC6DB1D006B8DF1 /* View */,
 				CB0E133E1DC6D134006B8DF1 /* Model */,
 				CB0E13191DC6CDDD006B8DF1 /* AppDelegate.swift */,
-				CB0E131B1DC6CDDD006B8DF1 /* MainVC.swift */,
 				CB0E131D1DC6CDDD006B8DF1 /* Main.storyboard */,
 				CB0E13231DC6CDDD006B8DF1 /* Assets.xcassets */,
 				CB0E13251DC6CDDD006B8DF1 /* LaunchScreen.storyboard */,
@@ -125,6 +126,8 @@
 		CB0E13411DC6DB23006B8DF1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CB0E131B1DC6CDDD006B8DF1 /* MainVC.swift */,
+				CB6A714B1DC7B30C00A2C49B /* ItemDetailsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				CB0E13361DC6D12A006B8DF1 /* Store+CoreDataClass.swift in Sources */,
 				CB0E13381DC6D12A006B8DF1 /* Image+CoreDataClass.swift in Sources */,
 				CB0E131A1DC6CDDD006B8DF1 /* AppDelegate.swift in Sources */,
+				CB6A714C1DC7B30C00A2C49B /* ItemDetailsVC.swift in Sources */,
 				CB0E13221DC6CDDD006B8DF1 /* DreamLister.xcdatamodeld in Sources */,
 				CB0E133D1DC6D12A006B8DF1 /* ItemType+CoreDataProperties.swift in Sources */,
 				CB0E133B1DC6D12A006B8DF1 /* Item+CoreDataProperties.swift in Sources */,
@@ -375,6 +379,7 @@
 				CB0E132D1DC6CDDD006B8DF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
