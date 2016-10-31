@@ -80,5 +80,25 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
     }
     
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+        let item = Item(context: context)
+        
+        if let title = tfTitle.text, let price = Double(tfPrice.text!), let detail = tfDetails.text {
+            item.title = title
+            item.price = price
+            item.details = detail
+        }
+        
+        item.toStore = stores[storePicker.selectedRow(inComponent: 0)]
+        ad.saveContext()
+
+        
+        _ = navigationController?.popViewController(animated: true)
+        
+       
+        
+    }
+    
 
 }
