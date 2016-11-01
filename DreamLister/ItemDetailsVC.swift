@@ -9,15 +9,17 @@
 import UIKit
 import CoreData
 
-class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var storePicker: UIPickerView!
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tfPrice: UITextField!
     @IBOutlet weak var tfDetails: UITextField!
+    @IBOutlet weak var ivThumb: UIImageView!
     
     var stores = [Store]()
     var itemToEdit: Item?
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,9 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         storePicker.dataSource = self
         storePicker.delegate = self
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
         getStores()
         
@@ -101,6 +106,12 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         }
         
         item.toStore = stores[storePicker.selectedRow(inComponent: 0)]
+        
+        let picture = Image(context: context)
+        picture.image = ivThumb.image
+        item.toImage = picture
+        
+        
         ad.saveContext()
 
         
@@ -117,6 +128,8 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             tfPrice.text = String(item.price)
             tfDetails.text = item.details
             
+            ivThumb.image = item.toImage?.image as? UIImage
+            
             if let store = item.toStore {
                 for i in 0 ..< stores.count {
                     if stores[i].name == store.name {
@@ -130,4 +143,30 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
     }
 
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        if itemToEdit != nil {
+            context.delete(itemToEdit!)
+            ad.saveContext()
+            
+        }
+        
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func addImagePressed(_ sender: UIButton) {
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            ivThumb.image = img
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
 }

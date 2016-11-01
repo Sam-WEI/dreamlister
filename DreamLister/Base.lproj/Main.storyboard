@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F68-gT-9iu">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F68-gT-9iu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -29,6 +29,9 @@
                                     <segment title="Title"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="iVb-cZ-R35"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="153" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5af-SX-7uW">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,7 +160,11 @@
                                     <constraint firstAttribute="width" constant="100" id="rja-7r-G4z"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuq-aU-pKY"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuq-aU-pKY">
+                                <connections>
+                                    <action selector="addImagePressed:" destination="xQQ-yb-TcH" eventType="touchUpInside" id="rjg-Db-6D2"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y6T-BK-fDh">
                                 <color key="backgroundColor" red="0.87904941099476441" green="0.87904941099476441" blue="0.87904941099476441" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -243,9 +250,13 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="gtr-2t-3so">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="e6K-h3-9Jm">
                             <color key="tintColor" red="0.87904941099476441" green="0.053203001769357099" blue="0.055036436653577353" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="xQQ-yb-TcH" id="vMf-DQ-12Q"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ivThumb" destination="Wf3-Xg-nfh" id="8rm-JG-E4X"/>
                         <outlet property="storePicker" destination="1ez-9J-Mhc" id="iTq-bq-TSN"/>
                         <outlet property="tfDetails" destination="r6a-aT-kOe" id="bOa-uG-93E"/>
                         <outlet property="tfPrice" destination="GY1-sS-eM0" id="RL5-XF-RPk"/>
@@ -261,7 +272,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F68-gT-9iu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="g5g-cX-bpn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g5g-cX-bpn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
